@@ -1,0 +1,64 @@
+.app {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    min-height: 100vh;
+    
+   
+  }
+
+body {
+  background-color: black;
+  color: white; 
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+.header {
+  color: white; 
+  padding: 10px;
+  
+}
+
+
+
+
+.feed {
+  display: flex;
+  flex-direction: column; /* Встановлюємо напрямок відображення в стовпчик */
+  align-items: center; /* Це позиціонує вміст по центру по горизонталі */
+  width: 100%; /* Встановлюємо ширину на всю доступну ширину */
+  
+}
+
+.video {
+  width: 100%; /* Встановлюємо ширину відео на всю доступну ширину */
+  margin-bottom: 20px; /* Додаємо відступ між відео */
+}
+
+.video-wrapper {
+  position: relative; /* Встановлюємо позицію як relative для позиціонування внутрішніх елементів */
+}
+
+video {
+  width: 100%; /* Встановлюємо ширину відео на всю доступну ширину внутрішнього контейнера */
+  height: auto; /* Автоматична висота, щоб зберегти пропорції */
+}
+
+.video-details {
+  list-style: none; /* Відключаємо маркери списку */
+  padding: 0; /* Відключаємо внутрішні відступи */
+  margin: 0; /* Відключаємо зовнішні відступи */
+}
+
+.video-music {
+  display: flex;
+  align-items: center; /* Це позиціонує текст і іконку по центру по вертикалі */
+}
+
+.video-music__title {
+  margin-left: 5px; /* Додаємо відступ між іконкою і текстом */
+}

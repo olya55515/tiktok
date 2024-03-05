@@ -1,0 +1,42 @@
+.video-player {
+    width: 100%;
+    height: auto;
+  }
+  
+  .video-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .video-item__controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .video-progress {
+    width: 100%;
+    height: 4px; /* Висота прогрес-бару */
+    background-color: rgba(255, 255, 255, 0.6); /* Прозорий колір фону прогрес-бару */
+    margin-top: 5px; /* Відступ зверху */
+    border-radius: 2px; /* Закруглення країв */
+  }
+  
+  .video-progress > span {
+    display: block;
+    height: 100%;
+    background-color: #f80000; /* Червоний колір прогресу */
+    border-radius: 2px; /* Закруглення країв */
+  }
+  
