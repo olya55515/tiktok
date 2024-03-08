@@ -4,8 +4,8 @@ import { REGION } from "../components/utils/constants"
 import { useState } from "react"
 
 
-const getSearchFeedByKeyword = async ({keywords, cursor}) => {
-const path = `/feed/search?/keywords=${keywords}&count=10&cursor=${cursor}&region=${REGION}`
+const getSearchFeedByKeyword = async ({ keywords, cursor }) => {
+    const path = `feed/search?keywords=${keywords}&count=10&cursor=${cursor}&region=${REGION}`
 
     const response = await request({
         path,
@@ -13,19 +13,27 @@ const path = `/feed/search?/keywords=${keywords}&count=10&cursor=${cursor}&regio
     return response;
 }
 
-export const useFeed = () => {
-const [params, setParams] = useState({
-    keywords: "",
-    cursor: 0
-})
+export const useSearch = () => {
+    const [params, setParams] = useState({
+        keywords: "",
+        cursor: 0
+    })
 
-    const { data, isLoading } = useInfiniteQuery({
-        query: ['searchFeed'],
-        queryFn: ({pageParam = params}) => getSearchFeedByKeyword(pageParam),
-        getNextPageParam: ({data}) => {
-            return data?.hasMore ? {...params, cursor: data?.cursor + 10} : undefined
-        }
+    const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery({
+        query: ['searchFeed', params.keywords],
+        queryFn: ({ pageParam = params }) => getSearchFeedByKeyword(pageParam),
+
+        getNextPageParam: ({ data }) => {
+            return data?.hasMore ? { ...params, cursor: data?.cursor } : undefined;
+        },
+        enabled: !!params.keywords
     });
-    return { data: data?.data || [], isLoading, setParams }
+    return { 
+        isFetching, 
+        setParams, 
+        fetchNextPage, 
+        hasNextPage,
+        data: data?.pages || [], 
+    }
 
 }

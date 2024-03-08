@@ -1,25 +1,64 @@
 .search {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.search-input {
+  display: flex;
   align-items: center;
-  background-color: #282828;
-  border-radius: 12px;
-  padding: 15px;
-  color: black;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* або будь-яка ширина, яка вам підходить */
 }
 
-.search-input.flex {
-  flex-grow: 1;
-  background-color: transparent;
-  border: none;
-  color: white;
-  margin-right: 10px;
+.search-icon {
+  position: absolute;
+  left: 20px;
+  color: rgba(0, 0, 0, 0.54);
 }
 
-.search button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  
+input[type="text"] {
+  flex: 1;
+  padding: 10px 10px 10px 40px; /* Відступ зліва для іконки */
+  border-radius: 20px;
+  border: px solid #ccc;
+  outline: none;
+  width: 100%;
+}
+
+input[type="text"]::placeholder {
+  color: transparent; /* Сховати стандартний placeholder */
+}
+
+.search-button {
+  display: none; /* Сховати кнопку, якщо не потрібно */
+}
+
+/* Додавання тексту "Search" через псевдоелемент */
+input[type="text"]:focus::placeholder {
+  color: #2c2929; /* Повернути колір placeholder при фокусі */
+  text-align: right; /* Текст "Search" вирівняний праворуч */
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error-message {
+  color: red; /* Червоний колір для повідомлень про помилку */
+  margin: 20px 0; /* Додати відступ зверху та знизу */
+  font-size: 16px; /* Розмір шрифту для повідомлення */
+}
+
+.search-feed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Відступи між елементами */
+  justify-content: center; /* Центрування елементів */
+  padding: 20px 0; /* Відступ зверху та знизу */
 }
